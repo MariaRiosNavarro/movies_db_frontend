@@ -23,7 +23,7 @@ npm i -D daisyui@latest
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   daisyui: {
-    themes: ["lemonade", "sunset", "autumn"],
+    themes: ["lemonade", "forest", "autumn"],
   },
   theme: {
     extend: {},
