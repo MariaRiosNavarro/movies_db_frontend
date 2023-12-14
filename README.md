@@ -1,14 +1,19 @@
 # React + Vite
 
 npm create vite@latest your-project-name -- --template react
+
 cd your-project-name
+
 npm install react-router-dom
+
 npm i uuid
 
 # Tailwind + Daisyui
 
 npm install -D tailwindcss postcss autoprefixer
+
 npx tailwindcss init -p
+
 npm i -D daisyui@latest
 
 # - IN tailwind.config.js:
