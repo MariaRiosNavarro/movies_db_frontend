@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import BigImage from "../components/BigImage";
 
 const Add = (props) => {
   const [count, setCount] = useState(0);
@@ -9,6 +11,8 @@ const Add = (props) => {
 
   return (
     <>
+      <Header></Header>
+      <BigImage />
       <h1>Add</h1>
       <section>
         <article>

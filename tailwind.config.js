@@ -4,14 +4,14 @@ export default {
   daisyui: {
     themes: [
       {
-        lemonade: {
-          ...require("daisyui/src/theming/themes")["[data-theme=lemonade]"],
-          costumDarkGreen: "#264653",
-          costumGreen: "#2A9D8F",
-          costumYellow: "#E9C46A",
-          costumRed: "#A16171",
+        mytheme: {
+          "base-100": "#283A45",
+          primary: "#2A9D8F",
+          secondary: "#E9C46A",
+          accent: "#A16171",
         },
       },
+      "dark",
     ],
   },
   theme: {

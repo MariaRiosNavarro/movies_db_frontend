@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const Details = (props) => {
   const [count, setCount] = useState(0);
@@ -9,6 +10,7 @@ const Details = (props) => {
 
   return (
     <>
+      <Header></Header>
       <h1>Details</h1>
       <section>
         <article>

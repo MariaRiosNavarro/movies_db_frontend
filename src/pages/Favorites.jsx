@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
-const Edit = (props) => {
+const Favorites = (props) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     console.log(count);
@@ -9,7 +10,8 @@ const Edit = (props) => {
 
   return (
     <>
-      <h1>Edit</h1>
+      <Header></Header>
+      <h1>Favorites</h1>
       <section>
         <article>
           <h2>{props.property}</h2>
@@ -28,4 +30,4 @@ const Edit = (props) => {
   );
 };
 
-export default Edit;
+export default Favorites;
