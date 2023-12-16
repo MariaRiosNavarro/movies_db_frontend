@@ -1,7 +1,7 @@
 const Button = (props) => {
   return (
     <button
-      className="btn bg-[#2A9D8F] rounded-[50px] text-[30px] h-[61px] px-[50px] hover:bg-transparent hover:border-[#2A9D8F] hover:text-[#E9C46A]"
+      className="btn bg-primaryColor_green rounded-[50px] text-[30px] h-[61px] px-[50px] hover:bg-transparent hover:border-primaryColor_green hover:text-accentColor_yellow"
       onClick={props.onClick}
     >
       {props.name}

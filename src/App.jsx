@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="bg-[#283A45]">
+      <div className="bg-bgColor_darkgreen">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

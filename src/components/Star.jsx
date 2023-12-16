@@ -1,7 +1,7 @@
 const Star = () => {
   return (
     <svg
-      className="w-[62px] h-[59px] fill-[#E9C46A] hover:drop-shadow-[1px_3px_3px_rgba(42,157,143,1)]"
+      className="w-[62px] h-[59px] fill-accentColor_yellow hover:drop-shadow-[1px_3px_3px_rgba(42,157,143,1)]"
       width="62"
       height="59"
       viewBox="0 0 62 59"

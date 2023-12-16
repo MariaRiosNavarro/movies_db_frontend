@@ -8,11 +8,11 @@ const Header = (props) => {
   };
   return (
     <>
-      <header className="bg-[#283A45]">
+      <header className="bg-bgColor_darkgreen">
         <nav className="flex justify-between items-center p-8">
           <div className="flex justify-between items-center gap-[64px]">
             <Link to="/">
-              <h1 className="text-[50px] font-bold text-[#2A9D8F] hover:text-[#E9C46A]">
+              <h1 className="text-[50px] font-bold text-primaryColor_green hover:text-accentColor_yellow">
                 MMDb
               </h1>
             </Link>
@@ -22,14 +22,14 @@ const Header = (props) => {
           </div>
           <div className="flex gap-[36px] items-center justify-center">
             <input
-              className="border bg-transparent rounded-[50px] w-[511px] h-[61px] border-[#2a9d8f] py-[8px] px-[29px] text-[#2A9D8F] placeholder-[#2A9D8F] hover:border-[#E9C46A]"
+              className="border bg-transparent rounded-[50px] w-[511px] h-[61px] border-primaryColor_green py-[8px] px-[29px] text-primaryColor_green placeholder-primaryColor_green hover:border-accentColor_yellow"
               type="text"
               placeholder="e.g The Godfather"
             />
             <Button onClick={searchFilm} name="Submit" />
           </div>
           <Link
-            className="text-[#2A9D8F] text-[25px] hover:text-[#E9C46A]"
+            className="text-primaryColor_green text-[25px] hover:text-accentColor_yellow"
             to="/add"
           >
             Add your own
