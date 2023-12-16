@@ -6,31 +6,37 @@ const MovieItem = (props) => {
     console.log("remove");
   };
 
+  //handle the diferents images of the db
+
   let imgPath = props.movieImage;
 
   let path;
-  console.log(imgPath);
-
-  //localhost:9987
 
   if (imgPath.includes("http")) {
     path = imgPath;
   } else {
-    console.log("ahllo");
-
     path = import.meta.env.VITE_BACKEND_URL + "/" + imgPath;
     console.log(path);
   }
 
+  //so that we have images of different formats or heights
+  //with style={{ paddingTop: "150%" }} we can force
+  //the ratio of (3 / 2) to be respected.
+  //Only with aspect-w-2 aspect-h-3, dont work it
+
   return (
     <li>
-      <figure className="relative overflow-hidden  aspect-w-2 aspect-h-3">
+      <figure
+        className="relative overflow-hidden"
+        style={{ paddingTop: "150%" }}
+      >
         <img
-          className="object-cover w-full h-full"
+          className="absolute inset-0 w-full h-full object-cover"
           src={path}
           alt={props.movieTitle}
         />
       </figure>
+
       <h3>{props.movieTitle}</h3>
       <h4>{props.movieReleaseYear}</h4>
 
