@@ -1,8 +1,14 @@
-const MoviesList = () => {
+import MovieItem from "./MovieItem";
+
+const MoviesList = (props) => {
+  const { array, arrayType } = props;
+
   return (
-    <div>
-      <h2>List</h2>
-    </div>
+    <ul className="grid grid-cols-3 gap-[5rem]">
+      {array.map((item) => (
+        <MovieItem key={item._id} {...item} arrayType={arrayType} />
+      ))}
+    </ul>
   );
 };
 

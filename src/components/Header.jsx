@@ -1,6 +1,6 @@
-import Star from "./Star";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import StarSvg from "./svg/StarSvg";
 
 const Header = (props) => {
   const searchFilm = () => {
@@ -17,7 +17,7 @@ const Header = (props) => {
               </h1>
             </Link>
             <Link to="/favorites">
-              <Star />
+              <StarSvg />
             </Link>
           </div>
           <div className="flex gap-[36px] items-center justify-center">

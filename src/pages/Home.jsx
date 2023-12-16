@@ -1,33 +1,44 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BigImage from "../components/BigImage";
+import Footer from "../components/Footer";
+import MoviesList from "../components/MoviesList";
 
-const Home = (props) => {
-  const [count, setCount] = useState(0);
+const Home = () => {
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
-    console.log(count);
-  }, [count]);
+    const fetchAsync = async () => {
+      try {
+        const response = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/movies"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        } else {
+          const result = await response.json();
+          const movieData = result.data || [];
+          console.log(movieData);
+          setMovies(movieData);
+        }
+      } catch (error) {
+        console.error("Error Message", error);
+      } finally {
+        console.log("Add cleanup code here (if needed)");
+      }
+    };
+    fetchAsync();
+  }, []);
 
   return (
     <>
       <Header></Header>
       <BigImage />
-      <h1>Home</h1>
-      <section>
-        <article>
-          <h2>{props.property}</h2>
-          <button
-            onClick={() => {
-              setCount(count + 1);
-            }}
-          >
-            click +1
-          </button>
-          <p>{count}</p>
-          <Link to="/">See More</Link>
-        </article>
+      <section className="px-[10rem]">
+        <h1>All Movies</h1>
+        <MoviesList array={movies} arrayType="movies" />
       </section>
+      <Footer />
     </>
   );
 };

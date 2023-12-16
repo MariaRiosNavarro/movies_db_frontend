@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BigImage from "../components/BigImage";
+import Footer from "../components/Footer";
 
 const Add = (props) => {
   const [count, setCount] = useState(0);
@@ -13,21 +14,8 @@ const Add = (props) => {
     <>
       <Header></Header>
       <BigImage />
-      <h1>Add</h1>
-      <section>
-        <article>
-          <h2>{props.property}</h2>
-          <button
-            onClick={() => {
-              setCount(count + 1);
-            }}
-          >
-            click +1
-          </button>
-          <p>{count}</p>
-          <Link to="/">See More</Link>
-        </article>
-      </section>
+
+      <Footer />
     </>
   );
 };
