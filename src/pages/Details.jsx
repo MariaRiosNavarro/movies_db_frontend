@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import removeSvg from "../assets/img/remove.svg";
 import addSvg from "../assets/img/add.svg";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
+import placeholder from "../../public/img/placeholder.jpg";
 
 const Details = () => {
   const { favorites, addFavorite, removeFavorite, favoritesMessage } =
@@ -49,9 +50,17 @@ const Details = () => {
   //HANDLE IMG
 
   let imgPath = movie?.movieImage || "";
-  let path = imgPath.includes("http")
-    ? imgPath
-    : `${import.meta.env.VITE_BACKEND_URL}/${imgPath}`;
+  let path;
+
+  if (imgPath.includes("http")) {
+    //url
+    path = imgPath;
+  } else if (imgPath) {
+    //local server
+    path = `${import.meta.env.VITE_BACKEND_URL}/${imgPath}`;
+  } else {
+    path = placeholder;
+  }
 
   // so that we have images of different formats or heights
   // with style={{ paddingTop: "150%" }} we can force
@@ -105,6 +114,10 @@ const Details = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 src={path}
                 alt={movie.movieTitle}
+                onError={(e) => {
+                  //  Handle image loading error, switch to placeholder
+                  e.target.src = placeholder;
+                }}
               />
             </figure>
             <div className="flex">

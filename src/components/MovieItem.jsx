@@ -2,17 +2,24 @@ import Badget from "./Badget";
 import removeSvg from "../assets/img/remove.svg";
 import { Link } from "react-router-dom";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
+import placeholder from "../../public/img/placeholder.jpg";
 
 const MovieItem = (props) => {
   const { removeFavorite } = useMyContext();
 
   //handle the diferents images of the db
-
-  // handle Image
   let imgPath = props?.movieImage || "";
-  let path = imgPath.includes("http")
-    ? imgPath
-    : import.meta.env.VITE_BACKEND_URL + "/" + imgPath;
+  let path;
+
+  if (imgPath.includes("http")) {
+    //url
+    path = imgPath;
+  } else if (imgPath) {
+    //local server
+    path = `${import.meta.env.VITE_BACKEND_URL}/${imgPath}`;
+  } else {
+    path = placeholder;
+  }
 
   //so that we have images of different formats or heights
   //with style={{ paddingTop: "150%" }} we can force
@@ -30,6 +37,10 @@ const MovieItem = (props) => {
             className="absolute inset-0 w-full h-full object-cover"
             src={path}
             alt={props.movieTitle}
+            onError={(e) => {
+              //  Handle image loading error, switch to placeholder
+              e.target.src = placeholder;
+            }}
           />
         </figure>
 
