@@ -34,7 +34,7 @@ const Home = () => {
     <>
       <Header></Header>
       <BigImage />
-      <section className="px-[10rem]">
+      <section className="p-[10rem]">
         <h1>All Movies</h1>
         <MoviesList array={movies} arrayType="movies" />
       </section>
