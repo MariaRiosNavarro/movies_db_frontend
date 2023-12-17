@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Badget from "../components/Badget";
@@ -67,8 +66,8 @@ const Details = () => {
   return (
     <>
       <Header></Header>
-      <section>
-        <article>
+      <section className="max-w-[1440px] mx-auto my-0">
+        <article className="max-w-[1000px] mx-auto my-0 tablet:px-[10rem]">
           <div>
             <h3>{movie.movieTitle}</h3>
             <h4>{movie.movieReleaseYear}</h4>
@@ -82,10 +81,10 @@ const Details = () => {
             <Badget text="Edit Movie" />
           </div>
         </article>
-        <article className="flex flex-col tablet:flex-row">
+        <article className="flex flex-col justify-center tablet:flex-row  max-w-[1000px] mx-auto my-0 tablet:px-[10rem]">
           <div>
             <figure
-              className="relative overflow-hidden tablet:w-[50%]"
+              className="relative overflow-hidden "
               style={{ paddingTop: "150%" }}
             >
               <img
@@ -97,8 +96,6 @@ const Details = () => {
             <div className="flex">
               <p>Rating:{movie.movieRating}</p>
               <p>Duration:{movie.movieRuntime}</p>
-              <p>Votes:{movie.movieVoteCount}</p>
-              <p>Language:{movie.movieLanguage}</p>
             </div>
           </div>
           <div className="flex flex-col">
@@ -108,6 +105,10 @@ const Details = () => {
               ))}
             </div>
             <p>{movie.movieDescription}</p>
+            <div className="flex gap-4">
+              <p>Votes:{movie.movieVoteCount}</p>
+              <p>Language:{movie.movieLanguage}</p>
+            </div>
           </div>
         </article>
       </section>
