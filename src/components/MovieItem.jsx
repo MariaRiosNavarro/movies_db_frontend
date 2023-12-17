@@ -1,5 +1,6 @@
 import Badget from "./Badget";
 import removeSvg from "../assets/img/remove.svg";
+import { Link } from "react-router-dom";
 
 const MovieItem = (props) => {
   const removeFavorite = () => {
@@ -8,16 +9,11 @@ const MovieItem = (props) => {
 
   //handle the diferents images of the db
 
-  let imgPath = props.movieImage;
-
-  let path;
-
-  if (imgPath.includes("http")) {
-    path = imgPath;
-  } else {
-    path = import.meta.env.VITE_BACKEND_URL + "/" + imgPath;
-    console.log(path);
-  }
+  // handle Image
+  let imgPath = props?.movieImage || "";
+  let path = imgPath.includes("http")
+    ? imgPath
+    : import.meta.env.VITE_BACKEND_URL + "/" + imgPath;
 
   //so that we have images of different formats or heights
   //with style={{ paddingTop: "150%" }} we can force
@@ -26,28 +22,30 @@ const MovieItem = (props) => {
 
   return (
     <li>
-      <figure
-        className="relative overflow-hidden"
-        style={{ paddingTop: "150%" }}
-      >
-        <img
-          className="absolute inset-0 w-full h-full object-cover"
-          src={path}
-          alt={props.movieTitle}
-        />
-      </figure>
+      <Link to={`/movie/${props._id}`}>
+        <figure
+          className="relative overflow-hidden"
+          style={{ paddingTop: "150%" }}
+        >
+          <img
+            className="absolute inset-0 w-full h-full object-cover"
+            src={path}
+            alt={props.movieTitle}
+          />
+        </figure>
 
-      <h3>{props.movieTitle}</h3>
-      <h4>{props.movieReleaseYear}</h4>
+        <h3>{props.movieTitle}</h3>
+        <h4>{props.movieReleaseYear}</h4>
 
-      {props.arrayType === "favorites" && (
-        <Badget
-          svg={removeSvg}
-          onClick={removeFavorite}
-          text="Remove from Favorites"
-          color="accentColor_yellow"
-        />
-      )}
+        {props.arrayType === "favorites" && (
+          <Badget
+            svg={removeSvg}
+            onClick={removeFavorite}
+            text="Remove from Favorites"
+            color="accentColor_yellow"
+          />
+        )}
+      </Link>
     </li>
   );
 };

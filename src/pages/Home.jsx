@@ -6,6 +6,7 @@ import MoviesList from "../components/MoviesList";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAsync = async () => {
@@ -24,11 +25,15 @@ const Home = () => {
       } catch (error) {
         console.error("Error Message", error);
       } finally {
-        console.log("Add cleanup code here (if needed)");
+        setLoading(false);
       }
     };
     fetchAsync();
   }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
