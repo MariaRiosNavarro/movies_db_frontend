@@ -12,10 +12,7 @@ const Add = (props) => {
 
   return (
     <>
-      <Header></Header>
       <BigImage />
-
-      <Footer />
     </>
   );
 };

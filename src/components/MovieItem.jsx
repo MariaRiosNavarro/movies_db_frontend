@@ -42,7 +42,6 @@ const MovieItem = (props) => {
             svg={removeSvg}
             onClick={removeFavorite}
             text="Remove from Favorites"
-            color="accentColor_yellow"
           />
         )}
       </Link>

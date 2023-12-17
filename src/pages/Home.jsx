@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
 import BigImage from "../components/BigImage";
-import Footer from "../components/Footer";
 import MoviesList from "../components/MoviesList";
 
 const Home = () => {
@@ -37,13 +35,11 @@ const Home = () => {
 
   return (
     <>
-      <Header></Header>
       <BigImage />
       <section className="p-[10rem]">
         <h1>All Movies</h1>
         <MoviesList array={movies} arrayType="movies" />
       </section>
-      <Footer />
     </>
   );
 };
