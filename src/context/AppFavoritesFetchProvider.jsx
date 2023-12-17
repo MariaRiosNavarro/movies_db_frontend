@@ -50,7 +50,10 @@ export const AppFavoritesFetchProvider = ({ children }) => {
           `${import.meta.env.VITE_BACKEND_URL}/api/favorites`,
           {
             method: "POST",
-            body: movie,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(movie),
           }
         );
         // Refetch favorites after adding one

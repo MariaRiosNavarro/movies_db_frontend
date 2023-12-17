@@ -3,13 +3,18 @@ import Badget from "../components/Badget";
 import { useParams } from "react-router-dom";
 import removeSvg from "../assets/img/remove.svg";
 import addSvg from "../assets/img/add.svg";
+import { useMyContext } from "../context/AppFavoritesFetchProvider";
 
 const Details = () => {
+  const { favorites, addFavorite, removeFavorite, favoritesMessage } =
+    useMyContext();
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
   const [movie, setMovie] = useState(null);
 
   const { id } = useParams();
+
+  // HANDLE FAV
 
   //HANDLE MAIN FECTH - details
 
@@ -26,6 +31,11 @@ const Details = () => {
           // console.log(result.data);
           let movie = result.data;
           setMovie(movie);
+          // HANDLE FAV
+          setIsFavorite(
+            favorites.some((item) => item.movieTitle === movie.movieTitle)
+          );
+          console.log("backend message------------", favoritesMessage);
         }
       } catch (error) {
         console.error("Error Message", error);
@@ -34,7 +44,7 @@ const Details = () => {
       }
     };
     fetchAsync();
-  }, [id]);
+  }, [id, favorites]);
 
   //HANDLE IMG
 
@@ -69,14 +79,14 @@ const Details = () => {
           <div>
             {isFavorite ? (
               <Badget
-                onClick={removeFavorite}
+                onClick={() => removeFavorite(id)}
                 svg={removeSvg}
                 text="Remove to Favorites"
                 color={"[#E9C46A]"}
               />
             ) : (
               <Badget
-                onClick={addFavorite}
+                onClick={() => addFavorite(movie)}
                 svg={addSvg}
                 text="Add to Favorites"
               />

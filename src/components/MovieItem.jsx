@@ -1,11 +1,10 @@
 import Badget from "./Badget";
 import removeSvg from "../assets/img/remove.svg";
 import { Link } from "react-router-dom";
+import { useMyContext } from "../context/AppFavoritesFetchProvider";
 
 const MovieItem = (props) => {
-  const removeFavorite = () => {
-    console.log("remove");
-  };
+  const { removeFavorite } = useMyContext();
 
   //handle the diferents images of the db
 
@@ -36,15 +35,14 @@ const MovieItem = (props) => {
 
         <h3>{props.movieTitle}</h3>
         <h4>{props.movieReleaseYear}</h4>
-
-        {props.arrayType === "favorites" && (
-          <Badget
-            svg={removeSvg}
-            onClick={removeFavorite}
-            text="Remove from Favorites"
-          />
-        )}
       </Link>
+      {props.arrayType === "favorites" && (
+        <Badget
+          svg={removeSvg}
+          onClick={() => removeFavorite(props._id)}
+          text="Remove from Favorites"
+        />
+      )}
     </li>
   );
 };
