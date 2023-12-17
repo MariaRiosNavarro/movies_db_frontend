@@ -4,7 +4,7 @@ const MoviesList = (props) => {
   const { array, arrayType } = props;
 
   return (
-    <ul className="grid grid-cols-3 gap-[5rem]">
+    <ul className="grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 gap-[5rem]">
       {array?.map((item) => (
         <MovieItem key={item._id} {...item} arrayType={arrayType} />
       ))}

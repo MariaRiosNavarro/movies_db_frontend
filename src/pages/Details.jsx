@@ -5,6 +5,7 @@ import removeSvg from "../assets/img/remove.svg";
 import addSvg from "../assets/img/add.svg";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
 import placeholder from "../../public/img/placeholder.jpg";
+import { convertSecondsToHoursMinutes } from "../utils/timeconvert";
 
 const Details = () => {
   const { favorites, addFavorite, removeFavorite, favoritesMessage } =
@@ -67,6 +68,11 @@ const Details = () => {
   // the ratio of (3 / 2) to be respected.
   // Only with aspect-w-2 aspect-h-3, dont work it
 
+  //HANDLE Duration of film
+
+  let timeData = movie?.movieRuntime || "";
+  let time = convertSecondsToHoursMinutes(timeData);
+
   //HANDLE LOADING
 
   if (loading) {
@@ -75,17 +81,17 @@ const Details = () => {
 
   return (
     <>
-      <section className="max-w-[1440px] mx-auto my-0">
+      <section className="max-w-[1440px] mx-auto my-0 py-[5rem] min-w-[100vw]">
         {/* header  */}
-        <article className="max-w-[1000px] mx-auto my-0 tablet:px-[10rem]">
-          <div>
+        <article className="max-w-[1440px] mx-auto my-0 px-[2.5rem] flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
             <h3 className="text-4xl text-secondaryColor_red">
               {movie.movieTitle}
             </h3>
             <h4 className="text-white text-xl">{movie.movieReleaseYear}</h4>
           </div>
           {/* badgets */}
-          <div>
+          <div className="flex w-[100%] items-center gap-8 py-8">
             {isFavorite ? (
               <Badget
                 onClick={() => removeFavorite(id)}
@@ -104,8 +110,8 @@ const Details = () => {
           </div>
         </article>
         {/* image & infos below */}
-        <article className="flex flex-col justify-center tablet:flex-row  max-w-[1000px] mx-auto my-0 tablet:px-[10rem]">
-          <div>
+        <article className="flex flex-col justify-center px-[2.5rem] tablet:flex-row  max-w-[1440px] mx-auto my-0  gap-8">
+          <div className="flex flex-col gap-4 w-[100%]">
             <figure
               className="relative overflow-hidden "
               style={{ paddingTop: "150%" }}
@@ -120,31 +126,32 @@ const Details = () => {
                 }}
               />
             </figure>
-            <div className="flex">
+            <div className="flex gap-12">
               {/* infos below image */}
-              <p>Rating:{movie.movieRating}</p>
-              <p>Duration:{movie.movieRuntime}</p>
+              <p className="text-2xl">Rating:{movie.movieRating}</p>
+              <p className="text-2xl">Duration:{time}</p>
             </div>
           </div>
           {/* text */}
           <div className="flex flex-col">
             {/* text:genres */}
-            <div>
+            <div className="flex gap-4">
               {movie.movieGenres.map((item, index) => (
                 <p
-                  className="btn bg-primaryColor_green rounded-[50px]"
+                  className="btn bg-primaryColor_green rounded-[50px] hover:bg-transparent hover:text-primaryColor_green hover:border-primaryColor_green"
                   key={index}
                 >
                   {item.text}
                 </p>
               ))}
             </div>
+            <h3 className="text-4xl text-secondaryColor_red pt-8">Story</h3>
             {/* text:description */}
-            <p>{movie.movieDescription}</p>
+            <p className="py-8 text-xl">{movie.movieDescription}</p>
             {/* text:infos */}
             <div className="flex gap-4">
-              <p>Votes:{movie.movieVoteCount}</p>
-              <p>Language:{movie.movieLanguage}</p>
+              <p className="text-xl">Votes: {movie.movieVoteCount}</p>
+              <p className="text-xl">Language: {movie.movieLanguage}</p>
             </div>
           </div>
         </article>

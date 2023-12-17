@@ -9,8 +9,8 @@ const Header = (props) => {
 
   return (
     <>
-      <header className="bg-bgColor_darkgreen p-4 tablet:p-10 min-w-[100vw]">
-        <nav className="container  mx-auto flex flex-col  items-center justify-between tablet:gap-[3%] tablet:flex-row bigdesktop:max-w-[1440px] bigdesktop:mx-auto bigdesktop:my-0 tablet:px-0 tablet:mx-0 ">
+      <header className="bg-bgColor_darkgreen max-w-[1440px] mx-auto my-0 p-4 tablet:p-10 ">
+        <nav className="max-w-[1440px] mx-auto flex flex-col  items-center justify-between tablet:gap-[3%] tablet:flex-row  bigdesktop:mx-auto bigdesktop:my-0 tablet:px-0 tablet:mx-0 ">
           <div className="flex justify-between items-center gap-4">
             <Link to="/">
               <h1 className="text-2xl tablet:text-3xl  desktop:text-4xl font-bold text-primaryColor_green hover:text-accentColor_yellow ">

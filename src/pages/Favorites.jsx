@@ -13,7 +13,7 @@ const Favorites = () => {
 
   return (
     <>
-      <section className=" p-[10rem]">
+      <section className="px-4">
         <h1>My Favorites</h1>
         <MoviesList array={favorites} arrayType="favorites" />
       </section>
