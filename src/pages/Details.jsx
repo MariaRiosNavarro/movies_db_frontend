@@ -110,7 +110,7 @@ const Details = () => {
           </div>
         </article>
         {/* image & infos below */}
-        <article className="flex flex-col justify-center px-[2.5rem] tablet:flex-row  max-w-[1440px] mx-auto my-0  gap-8">
+        <article className="flex flex-col justify-center px-[2.5rem] tablet:flex-row  tablet:max-w-[70vw] mx-auto my-0  gap-8">
           <div className="flex flex-col gap-4 w-[100%]">
             <figure
               className="relative overflow-hidden "
@@ -141,7 +141,7 @@ const Details = () => {
                   className="btn bg-primaryColor_green rounded-[50px] hover:bg-transparent hover:text-primaryColor_green hover:border-primaryColor_green"
                   key={index}
                 >
-                  {item.text}
+                  {item.text ? item.text : item}
                 </p>
               ))}
             </div>
