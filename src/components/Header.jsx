@@ -61,7 +61,7 @@ const Header = ({ movies, loading }) => {
 
           <div className="mt-4 tablet:mt-0 flex flex-col  gap-4 tablet:flex-row  tablet:gap-8 items-center justify-center">
             <input
-              className="border bg-transparent rounded-full desktop:w-[511px] labtop:w-[20%]  h-[61px] border-primaryColor_green py-2 px-4 text-primaryColor_green placeholder-primaryColor_green hover:border-accentColor_yellow"
+              className="border bg-transparent rounded-full desktop:w-[511px] labtop:w-[20%]  h-[61px] border-primaryColor_green py-2 px-4 text-primaryColor_green font-bold placeholder:text-primaryColor_green placeholder:font-bold  hover:border-accentColor_yellow"
               type="text"
               placeholder="e.g The Godfather"
               ref={titleRef}
