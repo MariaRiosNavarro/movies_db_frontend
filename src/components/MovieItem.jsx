@@ -2,7 +2,6 @@ import Badget from "./Badget";
 import removeSvg from "../assets/img/remove.svg";
 import { Link } from "react-router-dom";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
-import placeholder from "../../public/img/placeholder.jpg";
 
 const MovieItem = (props) => {
   const { removeFavorite } = useMyContext();
@@ -18,7 +17,7 @@ const MovieItem = (props) => {
     //local server
     path = `${import.meta.env.VITE_BACKEND_URL}/${imgPath}`;
   } else {
-    path = placeholder;
+    path = "/img/placeholder.jpg";
   }
 
   //so that we have images of different formats or heights
@@ -39,13 +38,13 @@ const MovieItem = (props) => {
             alt={props.movieTitle}
             onError={(e) => {
               //  Handle image loading error, switch to placeholder
-              e.target.src = placeholder;
+              e.target.src = "/img/placeholder.jpg";
             }}
           />
         </figure>
 
-        <h3>{props.movieTitle}</h3>
-        <h4>{props.movieReleaseYear}</h4>
+        <h3 className="text-white text-xl">{props.movieTitle}</h3>
+        <h4 className="primaryColor_green text-xl">{props.movieReleaseYear}</h4>
       </Link>
       {props.arrayType === "favorites" && (
         <Badget

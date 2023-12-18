@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import removeSvg from "../assets/img/remove.svg";
 import addSvg from "../assets/img/add.svg";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
-import placeholder from "../../public/img/placeholder.jpg";
 import { convertSecondsToHoursMinutes } from "../utils/timeconvert";
 
 const Details = () => {
@@ -60,7 +59,7 @@ const Details = () => {
     //local server
     path = `${import.meta.env.VITE_BACKEND_URL}/${imgPath}`;
   } else {
-    path = placeholder;
+    path = "/img/placeholder.jpg";
   }
 
   // so that we have images of different formats or heights
@@ -122,7 +121,7 @@ const Details = () => {
                 alt={movie.movieTitle}
                 onError={(e) => {
                   //  Handle image loading error, switch to placeholder
-                  e.target.src = placeholder;
+                  e.target.src = "/img/placeholder.jpg";
                 }}
               />
             </figure>
