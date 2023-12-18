@@ -1,4 +1,4 @@
-# React + Vite + Tailwind + DaisyUI -> Fullstack Movie Database
+# React + Vite + Tailwind + DaisyUI -> Fullstack Movie Database (Mobile, Tablet & Desktop)
 
 Welcome to the Full Stack Movie Database project, built with React, Vite, Tailwind CSS, and DaisyUI. This application includes a self-hosted server and utilizes a MongoDB database with two collections: 'movies' and 'favorites.' Seamlessly integrated into the project are all CRUD (Create, Read, Update, Delete) operations for efficient data management.
 
@@ -49,9 +49,9 @@ Welcome to the Full Stack Movie Database project, built with React, Vite, Tailwi
 ## GET (movies & favorites)
 
 <div>
-<img src="./public/img/1.png" alt="readme images" width="300px">
-<img src="./public/img/2.png" alt="readme images" width="300px">
-<img src="./public/img/3.png" alt="readme images" width="300px">
+<img src="./public/img/1.png" alt="readme images" width="400px">
+<img src="./public/img/2.png" alt="readme images" width="400px">
+<img src="./public/img/3.png" alt="readme images" width="400px">
 
 </div>
 
