@@ -43,8 +43,10 @@ const MovieItem = (props) => {
           />
         </figure>
 
-        <h3 className="text-white text-xl">{props.movieTitle}</h3>
-        <h4 className="primaryColor_green text-xl">{props.movieReleaseYear}</h4>
+        <h3 className="text-white text-xl py-4">{props.movieTitle}</h3>
+        <h4 className="text-primaryColor_green text-xl">
+          {props.movieReleaseYear}
+        </h4>
       </Link>
       {props.arrayType === "favorites" && (
         <Badget

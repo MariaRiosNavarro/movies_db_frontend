@@ -11,7 +11,9 @@ const Home = ({ movies, loading }) => {
     <>
       <BigImage />
       <section className="p-[10rem]">
-        <h1>All Movies</h1>
+        <h1 className="text-secondaryColor_red text-3xl font-bold py-4">
+          All Movies
+        </h1>
         <MoviesList array={movies} arrayType="movies" />
       </section>
     </>
