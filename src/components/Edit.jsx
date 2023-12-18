@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
 const Edit = ({ movie }) => {
-  // ----------------TODO: Images->later
-  const [useFile, setUseFile] = useState(false);
+  //   const [useFile, setUseFile] = useState(false);
+  const [message, setMessage] = useState(null);
 
   const movieTitleRef = useRef();
   const movieReleaseYearRef = useRef();
@@ -11,35 +11,72 @@ const Edit = ({ movie }) => {
   const movieVoteCountRef = useRef();
   const movieLanguageRef = useRef();
   const movieDescriptionRef = useRef();
-  const movieImageRef = useRef();
+  //   const movieImageRef = useRef();
 
-  //Handle Files
+  //   //Handle Files
 
-  let file;
+  //   let file;
 
-  const handleFile = (e) => {
-    file = e.target.files[0];
-    return file;
-  };
+  //   const handleFile = (e) => {
+  //     file = e.target.files[0];
+  //     return file;
+  //   };
 
-  const editMovie = () => {
+  const editMovie = async () => {
     const form = new FormData();
-    form.append(_id, movie._id);
+
     form.append("movieTitle", movieTitleRef.current.innerText);
-    form.append("ReleaseYearRef", movieReleaseYearRef.current.innerText);
-    form.append("RuntimeRef", movieRuntimeRef.current.innerText);
-    form.append("RatingRef", movieRatingRef.current.innerText);
-    form.append("VoteCountRef", movieVoteCountRef.current.innerText);
-    form.append("movieLanguageRef", movieLanguageRef.current.innerText);
-    form.append("movieDescriptionRef", movieDescriptionRef.current.innerText);
-    if (useFile) {
-      form.append("movieImage", movieImageRef.current.file);
+    form.append("movieReleaseYear", movieReleaseYearRef.current.innerText);
+    form.append("movieRuntime", movieRuntimeRef.current.innerText);
+    form.append("movieRating", movieRatingRef.current.innerText);
+    form.append("movieVoteCount", movieVoteCountRef.current.innerText);
+    form.append("movieLanguage", movieLanguageRef.current.innerText);
+    form.append("movieDescription", movieDescriptionRef.current.innerText);
+    const updateMovieData = Object.fromEntries(form);
+    //   // Append movieImage only if it exists (not undefined)
+    //   if (movieImageRef.current && movieImageRef.current.files.length > 0) {
+    //     form.append("movieImage", movieImageRef.current.files[0]);
+    //   }
+
+    // //Dynamical Header
+    // const headers = useFile
+    //   ? {} //for form with files
+    //   : {
+    //       "Content-Type": "application/json", // for form without files
+    //     };
+
+    const headers = { "Content-Type": "application/json" };
+    console.log(updateMovieData);
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_BACKEND_URL + "/api/movies/" + movie._id,
+        {
+          method: "PUT",
+          headers: headers,
+          body: JSON.stringify(updateMovieData),
+          //   body: useFile ? form : JSON.stringify({ ...form }),
+        }
+      );
+      const result = await response.json();
+      if (!response.ok) {
+        // Toast
+        setMessage(result.message);
+        setTimeout(() => {
+          setMessage("");
+        }, 4000);
+        throw new Error("Network response was not ok");
+      } else {
+        // Toast
+        setMessage(result.message);
+        setTimeout(() => {
+          setMessage("");
+        }, 4000);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
-
-  //   useEffect(() => {
-  //     console.log(count);
-  //   }, [id]);
 
   return (
     <article className="p-[10rem]">
@@ -96,7 +133,7 @@ const Edit = ({ movie }) => {
           {movie.movieLanguage}
         </p>
         {/* --------------------------------------Image */}
-        <div className=" flex justify-center items-center gap-4 p-4">
+        {/* <div className=" flex justify-center items-center gap-4 p-4">
           <h4 className="text-2xl text-primaryColor_green">
             Choose Image Type:
           </h4>
@@ -134,7 +171,7 @@ const Edit = ({ movie }) => {
               contentEditable
             />
           </div>
-        )}
+        )} */}
         {/* --------------------------------------Description*/}
         <p
           className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
@@ -159,11 +196,11 @@ const Edit = ({ movie }) => {
         </div> */}
 
         {/*--------------- message */}
-        {/* {message && (
+        {message && (
           <div className="p-4 bg-secondaryColor_red flex justify-center rounded-3xl">
             <p className="text-2xl">{message}</p>
           </div>
-        )} */}
+        )}
         <input
           type="submit"
           onClick={editMovie}
