@@ -35,11 +35,6 @@ const Edit = ({ movie }) => {
     if (useFile) {
       form.append("movieImage", movieImageRef.current.file);
     }
-
-    fetch("http://localhost:9898/api/characters", {
-      method: "PUT",
-      body: form,
-    }).then((response) => setRefresh((prev) => !prev));
   };
 
   //   useEffect(() => {
