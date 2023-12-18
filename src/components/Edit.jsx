@@ -64,14 +64,14 @@ const Edit = ({ movie }) => {
         setMessage(result.message);
         setTimeout(() => {
           setMessage("");
-        }, 4000);
+        }, 24000);
         throw new Error("Network response was not ok");
       } else {
         // Toast
         setMessage(result.message);
         setTimeout(() => {
           setMessage("");
-        }, 4000);
+        }, 24000);
       }
     } catch (error) {
       console.log(error.message);
