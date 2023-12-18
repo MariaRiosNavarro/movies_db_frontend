@@ -99,7 +99,7 @@ const MovieForm = () => {
   };
 
   return (
-    <section className="flex flex-col gap-4 min-w-[70%] mx-auto my-0 pb-8">
+    <section className="flex flex-col gap-4 min-w-[70%] mx-auto my-0 pb-[10rem]">
       <h3 className="min-w-[70%] mx-auto my-0 text-4xl text-secondaryColor_red">
         Add your own movies
       </h3>
