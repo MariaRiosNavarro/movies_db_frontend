@@ -5,6 +5,7 @@ import removeSvg from "../assets/img/remove.svg";
 import addSvg from "../assets/img/add.svg";
 import { useMyContext } from "../context/AppFavoritesFetchProvider";
 import { convertSecondsToHoursMinutes } from "../utils/timeconvert";
+import Edit from "../components/Edit";
 
 const Details = () => {
   const { favorites, addFavorite, removeFavorite, favoritesMessage } =
@@ -64,11 +65,6 @@ const Details = () => {
     path = "/img/placeholder.jpg";
   }
 
-  // so that we have images of different formats or heights
-  // with style={{ paddingTop: "150%" }} we can force
-  // the ratio of (3 / 2) to be respected.
-  // Only with aspect-w-2 aspect-h-3, dont work it
-
   //HANDLE Duration of film
 
   let timeData = movie?.movieRuntime || "";
@@ -79,6 +75,12 @@ const Details = () => {
   if (loading) {
     return <p>Loading...</p>;
   }
+
+  // HANDEL EDIT
+
+  const openEdit = () => {
+    setEdit((prev) => !prev);
+  };
 
   return (
     <>
@@ -107,7 +109,7 @@ const Details = () => {
                 text="Add to Favorites"
               />
             )}
-            <Badget text="Edit Movie" />
+            <Badget text="Edit Movie" onClick={openEdit} />
           </div>
         </article>
         {/* image & infos below */}
@@ -156,6 +158,7 @@ const Details = () => {
             </div>
           </div>
         </article>
+        {edit && <Edit movie={movie} />}
       </section>
     </>
   );
