@@ -2,6 +2,8 @@
 
 Welcome to the Full Stack Movie Database project, built with React, Vite, Tailwind CSS, and DaisyUI. This application includes a self-hosted server and utilizes a MongoDB database with two collections: 'movies' and 'favorites.' Seamlessly integrated into the project are all CRUD (Create, Read, Update, Delete) operations for efficient data management.
 
+-The Backend server can be found at [movie_db_server](https://github.com/MariaRiosNavarro/movies_db_server)
+
 ## Features:
 
 ### Header
