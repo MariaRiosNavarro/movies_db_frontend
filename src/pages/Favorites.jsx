@@ -14,7 +14,9 @@ const Favorites = () => {
   return (
     <>
       <section className="p-[10rem]">
-        <h1>My Favorites</h1>
+        <h1 className="text-secondaryColor_red text-3xl font-bold py-4">
+          My Favorites
+        </h1>
         <MoviesList array={favorites} arrayType="favorites" />
       </section>
     </>
