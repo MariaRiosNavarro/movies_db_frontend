@@ -6,33 +6,45 @@ Welcome to the Full Stack Movie Database project, built with React, Vite, Tailwi
 
 ### Header
 
-The MMBd logo in the header serves as a link to the home page.
-A star icon in the header provides a quick link to the Favorites List.
-The search input allows users to search for movies by title. An informative toast notification appears, providing the option to navigate to the movie details page upon finding the title or redirect to the MovieForm if the title is not found.
-The "Add Your Own" section contains a form for users to add films.
+- The MMBd logo in the header serves as a link to the home page.
+- A star icon in the header provides a quick link to the Favorites List.
+- The search input allows users to search for movies by title. An informative toast notification appears, providing the option to navigate to the movie details page upon finding the title or redirect to the MovieForm if the title is not found.
+- The "Add Your Own" section contains a form for users to add films.
 
 ### Home Page
 
-The home page displays a comprehensive list of all available films.
-Each movie entry on the home page is a clickable link leading to its respective detail page.
+- The home page displays a comprehensive list of all available films.
+- Each movie entry on the home page is a clickable link leading to its respective detail page.
+- In the movie list, the potential absence or degradation of images has been addressed by incorporating placeholder images from Unsplash.
+
+- PLACEHOLDER from <a href="https://unsplash.com/de/@dmjdenise?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Denise Jans</a> in <a href="https://unsplash.com/de/fotos/vier-rollenfilme-liegen-auf-weissem-tisch-Lq6rcifGjOU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 ### Detail Page
 
-Users can add or remove films from their favorites list directly from the detail page.
-Film properties can be edited, including text properties (file editing functionality coming soon). The edit form triggers a toast notification to provide information to the user.
+- Users can add or remove films from their favorites list directly from the detail page.
+- Film properties can be edited, including text properties (file editing functionality coming soon). The edit form triggers a toast notification to provide information to the user.
 
 ### Favorites Page
 
-Similar to the home page, the favorites section lists all the user's favorite movies.
-Users can remove movies from their favorites list. Each movie entry in the favorites section also includes a link to its respective detail page with editing capabilities.
+- Similar to the home page, the favorites section lists all the user's favorite movies (use the same component: MovieList).
+- Users can remove movies from their favorites list. Each movie entry in the favorites section also includes a link to its respective detail page with editing capabilities.
 
 ### Add Page
 
-Users can add their own films through a dedicated form.
-The form allows users to add a file or a URL and choose genres for their movie.
-A toast notification informs the user of the success or failure of the operation.
+- Users can add their own films through a dedicated form.
+  The form allows users to add a file or a URL and choose genres for their movie.
+- A toast notification informs the user of the success or failure of the operation.
 
-# GET (movies & favorites)
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+# IMAGES
+
+## GET (movies & favorites)
 
 <div>
 <img src="./public/img/1.png" alt="readme images" width="200px">
@@ -41,7 +53,7 @@ A toast notification informs the user of the success or failure of the operation
 
 </div>
 
-# POST (movies)
+## POST (movies)
 
 <div>
 <img src="./public/img/9.png" alt="readme images" width="200px">
@@ -50,28 +62,28 @@ A toast notification informs the user of the success or failure of the operation
 <img src="./public/img/11.png" alt="readme images" width="200px">
 </div>
 
-# POST (favorites)
+## POST (favorites)
 
 <div>
 <img src="./public/img/5.png" alt="readme images" width="200px">
 
 </div>
 
-# DELETE (favorites)
+## DELETE (favorites)
 
 <div>
 <img src="./public/img/4.png" alt="readme images" width="200px">
 <img src="./public/img/6.png" alt="readme images" width="200px">
 </div>
 
-# GET ONE (movies) // Search Title in Header
+## GET ONE (movies) // Search Title in Header
 
 <div>
 <img src="./public/img/7.png" alt="readme images" width="200px">
 <img src="./public/img/8.png" alt="readme images" width="200px">
 </div>
 
-# PUT (movies & favorites)
+## PUT (movies & favorites)
 
 <div>
 
@@ -80,7 +92,7 @@ A toast notification informs the user of the success or failure of the operation
 <img src="./public/img/15.png" alt="readme images" width="200px">
 <img src="./public/img/16.png" alt="readme images" width="200px"></div>
 
-### Setup
+# Setup
 
 npm create vite@latest your-project-name -- --template react
 
@@ -145,7 +157,3 @@ git init
 git add .
 
 git commit -m "first commit"
-
-# IMAGES
-
-PLACEHOLDER from <a href="https://unsplash.com/de/@dmjdenise?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Denise Jans</a> in <a href="https://unsplash.com/de/fotos/vier-rollenfilme-liegen-auf-weissem-tisch-Lq6rcifGjOU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
