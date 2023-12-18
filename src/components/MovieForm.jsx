@@ -101,7 +101,7 @@ const MovieForm = () => {
   return (
     <section className="flex flex-col gap-4 min-w-[70%] mx-auto my-0 pb-8">
       <h3 className="min-w-[70%] mx-auto my-0 text-4xl text-secondaryColor_red">
-        Add your own movies{" "}
+        Add your own movies
       </h3>
       <form
         onSubmit={saveNewMovie}
@@ -109,7 +109,7 @@ const MovieForm = () => {
       >
         {/* --------------------------------------title */}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4  pl-8 border placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
           type="text"
           placeholder="Title"
           name="movieTitle"
@@ -122,7 +122,7 @@ const MovieForm = () => {
         />
         {/* --------------------------------------year */}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
           type="number"
           name="movieReleaseYear"
           id="movieReleaseYear"
@@ -135,7 +135,7 @@ const MovieForm = () => {
 
         {/* --------------------------------------runtime */}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4  pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
           type="time"
           name="movieRuntime"
           id="movieRuntime"
@@ -147,7 +147,7 @@ const MovieForm = () => {
         />
         {/* --------------------------------------Rating */}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
           type="number"
           name="movieRating"
           id="movieRating"
@@ -159,7 +159,7 @@ const MovieForm = () => {
         />
         {/* --------------------------------------VoteCount*/}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
           type="number"
           name="movieVoteCount"
           id="movieVoteCount"
@@ -171,7 +171,7 @@ const MovieForm = () => {
         />
         {/* --------------------------------------Language*/}
         <input
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
           type="text"
           name="movieLanguage"
           id="movieLanguage"
@@ -216,7 +216,7 @@ const MovieForm = () => {
           <div className="flex justify-center items-center gap-4 p-4">
             <h4 className="text-2xl text-primaryColor_green">Enter URL:</h4>
             <input
-              className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border min-w-[70%]  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
+              className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8  border min-w-[70%]  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest"
               type="text"
               name="movieImage"
               value={formData.movieImage}
@@ -231,10 +231,11 @@ const MovieForm = () => {
 
         {/* --------------------------------------Description*/}
         <textarea
-          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
+          className="rounded-[50px] bg-transparent border-primaryColor_green p-4 pl-8 border  placeholder:text-primaryColor_green placeholder:text-xl placeholder:font-bold placeholder:tracking-widest "
           type="text"
           name="movieDescription"
           id="movieDescription"
+          rows={5}
           value={formData.movieDescription}
           placeholder="Description"
           onChange={(e) =>
@@ -242,6 +243,9 @@ const MovieForm = () => {
           }
         />
         {/*-------------- Multi-select dropdown for genres */}
+        <h4 className="text-2xl text-primaryColor_green text-center">
+          Choose Genres:
+        </h4>
         <select
           multiple
           className="h-auto  border-primaryColor_green flex flex-col justify-center items-center gap-4 rounded-3xl "
@@ -251,37 +255,37 @@ const MovieForm = () => {
           onChange={handleGenreChange}
         >
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl  text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl  text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
             value="comedy"
           >
             Comedy
           </option>
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl  text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl  text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
             value="drama"
           >
             Drama
           </option>
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
             value="horror"
           >
             Horror
           </option>
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
             value="science-fiction"
           >
             Science-fiction
           </option>
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl   text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl   text-center  border-b-bgColor_darkgreen border-b-[3px]  hover:text-accentColor_yellow"
             value="sport"
           >
             Sport
           </option>
           <option
-            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-3xl text-center border-b-bgColor_darkgreen border-b-[3px] hover:text-accentColor_yellow"
+            className="bg-primaryColor_green text-bgColor_darkgreen pb-4 pl-8 text-2xl text-center border-b-bgColor_darkgreen border-b-[3px] hover:text-accentColor_yellow"
             value="fantasy"
           >
             Fantasy
