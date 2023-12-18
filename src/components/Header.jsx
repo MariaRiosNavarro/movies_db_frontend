@@ -1,10 +1,47 @@
 import Button from "./Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StarSvg from "./svg/StarSvg";
+import { useState, useRef } from "react";
 
-const Header = (props) => {
-  const searchFilm = () => {
-    console.log("search");
+const Header = ({ movies, loading }) => {
+  const [notFoundMessage, setNotFoundMessage] = useState(null);
+  const titleRef = useRef();
+  const navigate = useNavigate();
+
+  const searchFilm = async () => {
+    let value = titleRef.current.value;
+    const findMovie = movies.filter((movie) => movie.movieTitle === value);
+
+    if (findMovie.length > 0) {
+      let id = findMovie[0]._id;
+
+      try {
+        const response = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/movies/" + id
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        } else {
+          const result = await response.json();
+          console.log(result.message);
+          console.log(result.data);
+          // Use navigate to redirect to the movie details page
+          navigate(`/movie/${id}`);
+        }
+      } catch (error) {
+        console.error("Error fetching movie details", error);
+        setNotFoundMessage("Error fetching movie details");
+      }
+    } else {
+      setNotFoundMessage(
+        "We have not found this title, would you like to add it?"
+      );
+      setTimeout(() => {
+        setNotFoundMessage("");
+      }, 3000);
+      navigate(`/add`);
+    }
   };
 
   return (
@@ -27,6 +64,7 @@ const Header = (props) => {
               className="border bg-transparent rounded-full desktop:w-[511px] labtop:w-[20%]  h-[61px] border-primaryColor_green py-2 px-4 text-primaryColor_green placeholder-primaryColor_green hover:border-accentColor_yellow"
               type="text"
               placeholder="e.g The Godfather"
+              ref={titleRef}
             />
             <Button onClick={searchFilm} name="Submit" />
           </div>
@@ -39,6 +77,11 @@ const Header = (props) => {
           </Link>
         </nav>
       </header>
+      {notFoundMessage && (
+        <p className="p-8 bg-secondaryColor_red rounded-2xl text-2xl font-bolder text-center w-50% mx-auto my-0 z-10">
+          {notFoundMessage}
+        </p>
+      )}
     </>
   );
 };

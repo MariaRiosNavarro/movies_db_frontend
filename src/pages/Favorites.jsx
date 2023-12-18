@@ -8,7 +8,7 @@ const Favorites = () => {
 
   if (!favorites) {
     console.error("No Favorites");
-    return null;
+    return <p>There are no saved favourites</p>;
   }
 
   return (
