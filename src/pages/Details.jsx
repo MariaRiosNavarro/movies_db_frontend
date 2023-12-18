@@ -9,6 +9,8 @@ import { convertSecondsToHoursMinutes } from "../utils/timeconvert";
 const Details = () => {
   const { favorites, addFavorite, removeFavorite, favoritesMessage } =
     useMyContext();
+
+  const [edit, setEdit] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
   const [movie, setMovie] = useState(null);
