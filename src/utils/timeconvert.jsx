@@ -5,3 +5,8 @@ export const convertSecondsToHoursMinutes = (seconds) => {
 
   return `${hours}h ${minutes}min`;
 };
+
+export const convertTimeToSeconds = (time) => {
+  const [hours, minutes] = time.split(":");
+  return parseInt(hours) * 3600 + parseInt(minutes) * 60;
+};
