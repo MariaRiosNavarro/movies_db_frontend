@@ -79,7 +79,8 @@ const Header = ({ movies, loading }) => {
       </header>
       {notFoundMessage && (
         <p className="p-8 bg-secondaryColor_red rounded-2xl text-2xl font-bolder text-center w-50% mx-auto my-0 z-10">
-          {notFoundMessage}
+          <span className="px-8">⬇</span> {notFoundMessage}
+          <span className="px-8">⬇</span>
         </p>
       )}
     </>
