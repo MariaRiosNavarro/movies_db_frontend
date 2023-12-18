@@ -49,50 +49,50 @@ Welcome to the Full Stack Movie Database project, built with React, Vite, Tailwi
 ## GET (movies & favorites)
 
 <div>
-<img src="./public/img/1.png" alt="readme images" width="200px">
-<img src="./public/img/2.png" alt="readme images" width="200px">
-<img src="./public/img/3.png" alt="readme images" width="200px">
+<img src="./public/img/1.png" alt="readme images" width="300px">
+<img src="./public/img/2.png" alt="readme images" width="300px">
+<img src="./public/img/3.png" alt="readme images" width="300px">
 
 </div>
 
 ## POST (movies)
 
 <div>
-<img src="./public/img/9.png" alt="readme images" width="200px">
-<img src="./public/img/10.png" alt="readme images" width="200px">
-<img src="./public/img/10.5.png" alt="readme images" width="200px">
-<img src="./public/img/11.png" alt="readme images" width="200px">
+<img src="./public/img/9.png" alt="readme images" width="400px">
+<img src="./public/img/10.png" alt="readme images" width="400px">
+<img src="./public/img/10.5.png" alt="readme images" width="400px">
+<img src="./public/img/11.png" alt="readme images" width="400px">
 </div>
 
 ## POST (favorites)
 
 <div>
-<img src="./public/img/5.png" alt="readme images" width="200px">
+<img src="./public/img/5.png" alt="readme images" width="500px">
 
 </div>
 
 ## DELETE (favorites)
 
 <div>
-<img src="./public/img/4.png" alt="readme images" width="200px">
-<img src="./public/img/6.png" alt="readme images" width="200px">
+<img src="./public/img/4.png" alt="readme images" width="400px">
+<img src="./public/img/6.png" alt="readme images" width="400px">
 </div>
 
 ## GET ONE (movies) // Search Title in Header
 
 <div>
-<img src="./public/img/7.png" alt="readme images" width="200px">
-<img src="./public/img/8.png" alt="readme images" width="200px">
+<img src="./public/img/7.png" alt="readme images" width="400px">
+<img src="./public/img/8.png" alt="readme images" width="400px">
 </div>
 
 ## PUT (movies & favorites)
 
 <div>
 
-<img src="./public/img/13.png" alt="readme images" width="200px">
-<img src="./public/img/14.png" alt="readme images" width="200px">
-<img src="./public/img/15.png" alt="readme images" width="200px">
-<img src="./public/img/16.png" alt="readme images" width="200px"></div>
+<img src="./public/img/13.png" alt="readme images" width="400px">
+<img src="./public/img/14.png" alt="readme images" width="400px">
+<img src="./public/img/15.png" alt="readme images" width="400px">
+<img src="./public/img/16.png" alt="readme images" width="400px"></div>
 
 # Setup
 
